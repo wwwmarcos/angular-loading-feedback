@@ -8,15 +8,14 @@
   angular
   .module('LoadindFeedBackInterceptorModule',[])
   .directive('loadingShow', loadingShow)
-  .animation('.notification', animationConfig)
   .config(config);
 
   config.$inject = ['$provide', '$httpProvider'];
   function config($provide, $httpProvider) {
     $provide.factory('LoadindFeedBackInterceptor', LoadindFeedBackInterceptor);
 
-    LoadindFeedBackInterceptor.$inject = ['$q', '$injector', '$rootScope'];
-    function LoadindFeedBackInterceptor($q, $injector, $rootScope) {
+    LoadindFeedBackInterceptor.$inject = ['$q', '$rootScope'];
+    function LoadindFeedBackInterceptor($q, $rootScope) {
       var interceptor = {
         request: onRequest,
         response: onResponse,
@@ -87,18 +86,5 @@
       };
     };
   };
-  
-  function animationConfig() {
-    return {
-      enter: function(element, done) {
-        console.log('>>>> enter');
-        element.hide().slideDown()
-        return function(cancelled) {};
-      },
-      leave: function(element, done) { 
-        element.slideUp();
-      },
-    };
-  };
-
 }());
+

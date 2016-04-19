@@ -44,6 +44,7 @@
       };
       
       function openLoading(configUrl){
+        console.log('loading ...')
         requestList.push(configUrl);
         $rootScope.$broadcast('OpenLoadindEvent');
       };
@@ -65,9 +66,13 @@
       restrict: 'E',
       scope:{
         loadingMessage: '@',
-        barColor: '@'
       },
-      template: '<div data-ng-if="ativeLoading" class="loading-bar"><b>{{loadingMessage}}</b><i class="signal-in-line"></i></div>',
+      template:
+       '  <div data-ng-if="ativeLoading" class="loading-modal">'
+       +    '<div class="loading-modal-body">'   
+       +      '<i class="signal"></i>'
+       +    '</div>'
+       +  '</div>',
       link: link
     };
     return directive;

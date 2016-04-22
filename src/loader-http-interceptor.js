@@ -66,10 +66,12 @@
     var directive = {
       restrict: 'E',
       scope:{
-        loadingMessage: '@',
+        loadingMessage: '@'
+          , bgColor: '@'
+          , textColor: '@'
       },
       template:
-       '  <div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal">'
+       '  <div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
        +   '<h3 class="angular-loadind-feedback-text">'
        +   '  <b>{{loadingMessage}}<i class="angular-loadind-feedback-signal"></i></b>'
        +   '</h3>'
@@ -80,8 +82,20 @@
     
     function link(scope, element, attrs) {
       scope.ativeLoading = false;
+      scope.setColorConfig = setColorConfig;
       $rootScope.$on('OpenLoadindEvent', showThis);
       $rootScope.$on('CloseLoadingEvent', hideThis);
+      
+      function setColorConfig(){
+        console.log('::::');
+        var modalElement = angular.element('.angular-loadind-feedback-modal')
+          , textElement = angular.element('.angular-loadind-feedback-text')
+          , signalElement = angular.element('.angular-loadind-feedback-signal');
+        
+        modalElement.css('background-color', scope.bgColor);
+        textElement.css('color', scope.textColor);
+        signalElement.css('border', '5px solid ' + scope.textColor);
+      };
       
       function showThis(){
         scope.ativeLoading = true;

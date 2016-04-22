@@ -71,7 +71,7 @@
           , textColor: '@'
       },
       template:
-       '  <div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
+       '  <div data-ng-if="true" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
        +   '<h3 class="angular-loadind-feedback-text">'
        +   '  <b>{{loadingMessage}}<i class="angular-loadind-feedback-signal"></i></b>'
        +   '</h3>'
@@ -87,13 +87,17 @@
       $rootScope.$on('CloseLoadingEvent', hideThis);
       
       function setColorConfig(){
-        var modalElement  = document.querySelector('.angular-loadind-feedback-modal')
-          , textElement   = document.querySelector('.angular-loadind-feedback-text')
-          , signalElement = document.querySelector('.angular-loadind-feedback-signal')
+        var modalElement  = getElement('.angular-loadind-feedback-modal')
+          , textElement   = getElement('.angular-loadind-feedback-text')
+          , signalElement = getElement('.angular-loadind-feedback-signal')
         
         modalElement.css('background-color', scope.bgColor);
         textElement.css('color', scope.textColor);
         signalElement.css('border', '5px solid ' + scope.textColor);
+      };
+      
+      function getElement(selector){
+        return angular.element(document.querySelector(selector));
       };
       
       function showThis(){
@@ -106,4 +110,3 @@
     };
   };
 }());
-

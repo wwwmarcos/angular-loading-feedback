@@ -71,7 +71,7 @@
           , textColor: '@'
       },
       template:
-       '  <div data-ng-if="true" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
+       '  <div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
        +   '<h3 class="angular-loadind-feedback-text">'
        +   '  <b>{{loadingMessage}}<i class="angular-loadind-feedback-signal"></i></b>'
        +   '</h3>'

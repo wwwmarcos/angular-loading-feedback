@@ -15,7 +15,8 @@ Declare a dependency on principal module
 
 # Usage
 In your index declare the directive  
-```<loading-feedback></loading-feedback>
+```
+<loading-feedback></loading-feedback>
 ```
 
 # Settings
@@ -26,6 +27,11 @@ In your index declare the directive
 
 * text-color: _(default: #7f8c8d)_ text and loading symbol color
 
+Example:
+```
+<loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
+
+```
 ##Demo:
 
 _(Default settings)_

@@ -15,7 +15,8 @@ Declare a dependency on principal module
 
 # Usage
 In your index declare the directive  
-```<loading-feedback></loading-feedback>```
+```<loading-feedback></loading-feedback>
+```
 
 # Settings
 

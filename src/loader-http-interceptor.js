@@ -6,8 +6,8 @@
 (function(){
 'use strict';
   angular
-  .module('LoadindFeedBackInterceptorModule',[])
-  .directive('loadingShow', loadingShow)
+  .module('angular-loading-feedback',[])
+  .directive('loadingFeedback', loadingFeedback)
   .config(config);
 
   config.$inject = ['$provide', '$httpProvider'];
@@ -36,21 +36,24 @@
       };
       
       function onRequestError(rejection) {
+        console.log('rejection {} ', rejection);
+        closeLoading(rejection.config.url);
         return $q.reject(rejection);
       };
       
       function onResponseError(rejection) {
+        console.log('rejection {} ', rejection);
+        closeLoading(rejection.config.url);
         return $q.reject(rejection);
       };
       
-      function openLoading(configUrl){
-        console.log('loading ...')
-        requestList.push(configUrl);
+      function openLoading(urlConfig){
+        requestList.push(urlConfig);
         $rootScope.$broadcast('OpenLoadindEvent');
       };
       
-      function closeLoading(configUrl){
-        var index = requestList.indexOf(configUrl);
+      function closeLoading(urlConfig){
+        var index = requestList.indexOf(urlConfig);
         requestList.splice(index, 1);
         if (requestList.length == 0) 
           $rootScope.$broadcast('CloseLoadingEvent');
@@ -60,18 +63,18 @@
     $httpProvider.interceptors.push('LoadindFeedBackInterceptor');
   };
   
-  loadingShow.$inject = ['$rootScope'];
-  function loadingShow($rootScope){
+  loadingFeedback.$inject = ['$rootScope'];
+  function loadingFeedback($rootScope){
     var directive = {
       restrict: 'E',
       scope:{
         loadingMessage: '@',
       },
       template:
-       '  <div data-ng-if="ativeLoading" class="loading-modal">'
-       +    '<div class="loading-modal-body">'   
-       +      '<i class="signal"></i>'
-       +    '</div>'
+       '  <div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal">'
+       +   '<h3 class="angular-loadind-feedback-text">'
+       +   '  <b>{{loadingMessage}}<i class="angular-loadind-feedback-signal"></i></b>'
+       +   '</h3>'
        +  '</div>',
       link: link
     };

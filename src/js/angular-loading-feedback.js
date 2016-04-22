@@ -81,16 +81,15 @@
     return directive;
     
     function link(scope, element, attrs) {
-      scope.ativeLoading = false;
+      scope.ativeLoading   = false;
       scope.setColorConfig = setColorConfig;
       $rootScope.$on('OpenLoadindEvent', showThis);
       $rootScope.$on('CloseLoadingEvent', hideThis);
       
       function setColorConfig(){
-        console.log('::::');
-        var modalElement = angular.element('.angular-loadind-feedback-modal')
-          , textElement = angular.element('.angular-loadind-feedback-text')
-          , signalElement = angular.element('.angular-loadind-feedback-signal');
+        var modalElement  = document.querySelector('.angular-loadind-feedback-modal')
+          , textElement   = document.querySelector('.angular-loadind-feedback-text')
+          , signalElement = document.querySelector('.angular-loadind-feedback-signal')
         
         modalElement.css('background-color', scope.bgColor);
         textElement.css('color', scope.textColor);

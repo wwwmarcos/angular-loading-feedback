@@ -78,6 +78,7 @@
        +  '</div>',
       link: link
     };
+    
     return directive;
     
     function link(scope, element, attrs) {
@@ -90,7 +91,7 @@
         var modalElement  = getElement('.angular-loadind-feedback-modal')
           , textElement   = getElement('.angular-loadind-feedback-text')
           , signalElement = getElement('.angular-loadind-feedback-signal')
-        
+
         modalElement.css('background-color', scope.bgColor);
         textElement.css('color', scope.textColor);
         signalElement.css('border', '5px solid ' + scope.textColor);

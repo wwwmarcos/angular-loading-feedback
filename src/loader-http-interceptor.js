@@ -36,13 +36,11 @@
       };
       
       function onRequestError(rejection) {
-        console.log('rejection {} ', rejection);
         closeLoading(rejection.config.url);
         return $q.reject(rejection);
       };
       
       function onResponseError(rejection) {
-        console.log('rejection {} ', rejection);
         closeLoading(rejection.config.url);
         return $q.reject(rejection);
       };

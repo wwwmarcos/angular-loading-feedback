@@ -7,11 +7,11 @@
 ## Bower _(coming soon)_
 
 Import the files in your index.  
-```
+```html
 <link rel="stylesheet" href="css/angular-loading-feedback.css" />
 ```
 
-```
+```html
 <script src="js/angular-loading-feedback.js"></script>
 ```  
 

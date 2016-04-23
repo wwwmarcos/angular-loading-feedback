@@ -7,15 +7,23 @@
 ## Bower _(coming soon)_
 
 Import the files in your index.  
-```<link rel="stylesheet" href="css/angular-loading-feedback.css" />```  
-```<script src="js/angular-loading-feedback.js"></script>```  
+```
+<link rel="stylesheet" href="css/angular-loading-feedback.css" />
+```
+
+```
+<script src="js/angular-loading-feedback.js"></script>
+```  
 
 Declare a dependency on principal module  
-```angular.module('myModule', ['angular-loading-feedback']);```
+```javascript
+angular.module('myModule', ['angular-loading-feedback']);
+```
 
 # Usage
 In your index declare the directive  
-```
+
+```html
 <loading-feedback></loading-feedback>
 ```
 
@@ -28,9 +36,9 @@ In your index declare the directive
 * text-color: _(default: #7f8c8d)_ text and loading symbol color
 
 Example:
-```
-<loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
 
+```html
+<loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
 ```
 ##Live-demo
 https://plnkr.co/edit/DYksypT1c7d0T2iKEGka?p=preview

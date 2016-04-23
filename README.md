@@ -32,6 +32,9 @@ Example:
 <loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
 
 ```
+##Live-demo
+https://plnkr.co/edit/DYksypT1c7d0T2iKEGka?p=preview
+
 ##Demo:
 
 _(Default settings)_

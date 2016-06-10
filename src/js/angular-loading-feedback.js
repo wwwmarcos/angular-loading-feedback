@@ -6,8 +6,10 @@
 (function(){
 'use strict';
   angular
-  .module('angular-loading-feedback',[])
+  .module('angular-loading-feedback', [])
   .directive('loadingFeedback', loadingFeedback)
+  .directive('loadingFeedbackIgnore', loadingFeedbackIgnore)
+  .factory('loadingFactory', loadingFactory)
   .config(config);
 
   config.$inject = ['$provide', '$httpProvider'];
@@ -57,12 +59,11 @@
           $rootScope.$broadcast('CloseLoadingEvent');
       };
     };
-    
     $httpProvider.interceptors.push('LoadindFeedBackInterceptor');
   };
   
-  loadingFeedback.$inject = ['$rootScope'];
-  function loadingFeedback($rootScope){
+  loadingFeedback.$inject = ['$rootScope', 'loadingFactory'];
+  function loadingFeedback($rootScope, loadingFactory){
     var directive = {
       restrict: 'E',
       scope:{
@@ -102,12 +103,51 @@
       };
       
       function showThis(){
-        scope.ativeLoading = true;
+        if (!loadingFactory.getLoadingIgnore())
+            scope.ativeLoading = true;
       };
       
       function hideThis(){
         scope.ativeLoading = false;
       };
+    };
+  };
+
+  loadingFeedbackIgnore.$inject = ['loadingFactory']; 
+  function loadingFeedbackIgnore(loadingFactory){
+    var directive = {
+      priority: 1,
+      restrict: 'A',
+      link: link,
+      scope: {}
+    };    
+    return directive;
+    
+    function link(scope, element, attrs) {
+      element.bind('focus', function(){
+        loadingFactory.setLoadingIgnore(true);
+      });
+      
+      element.bind('blur', function(){
+        loadingFactory.setLoadingIgnore(false);
+      });
+    };
+  };
+  
+  function loadingFactory(){
+    var factory = {
+      setLoadingIgnore : setLoadingIgnore,
+      getLoadingIgnore : getLoadingIgnore
+    }
+    , loadingIgnored = false;
+    return factory;
+    
+    function setLoadingIgnore(status){
+      loadingIgnored = status;
+    };
+    
+    function getLoadingIgnore(){
+      return loadingIgnored;
     };
   };
 }());

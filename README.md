@@ -4,7 +4,8 @@
 
 # Install
 
-## Bower _(coming soon)_
+## Bower
+`bower install angular-loading-feedback`
 
 Import the files in your index.  
 ```html

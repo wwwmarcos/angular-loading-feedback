@@ -1,0 +1,56 @@
+.angular-loadind-feedback-modal {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: #f2f2f2;
+  z-index: 99999;
+  opacity:0;
+  -webkit-transition: opacity 200ms ease-in;
+  -moz-transition: opacity 200ms ease-in;
+  transition: opacity 200ms ease-in;
+  pointer-events: none;
+  opacity:1;
+  pointer-events: auto;
+}
+
+.angular-loadind-feedback-signal {
+  position: absolute;
+  top: 50%;
+  border: 5px solid #7f8c8d;
+  border-radius: 30px;
+  height: 30px;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  width: 30px;
+  margin-left: 10px;
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
+.angular-loadind-feedback-text {
+  color: #7f8c8d;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  font-weight: bold;
+  font-size: 24px;
+  padding-top: 10px;
+  font-family: sans-serif;
+  transform: translate(-50%, -50%);
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(.1);
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}

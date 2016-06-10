@@ -7,13 +7,13 @@
 ## Bower
 `bower install angular-loading-feedback`
 
-Import the files in your index.  
+## Or Import the files in your index.  
 ```html
-<link rel="stylesheet" href="css/angular-loading-feedback.css" />
+<link rel="stylesheet" href="{folders}/angular-loading-feedback.css" />
 ```
 
 ```html
-<script src="js/angular-loading-feedback.js"></script>
+<script src="{folders}/angular-loading-feedback.js"></script>
 ```  
 
 Declare a dependency on principal module  

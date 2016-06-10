@@ -1,14 +1,14 @@
 {
   "name": "angular-loading-feedback",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "homepage": "https://github.com/marcosflorencio/angular-loading-feedback",
   "authors": [
     "marcos.florencio <marcoseptacio@gmail.com>"
   ],
   "description": "Angular directive to indicate loads in app",
   "main": [
-    "./src/js/angular-loading-feedback.js",
-    "./src/css/angular-loading-feedback.css"
+    "./angular-loading-feedback.js",
+    "./angular-loading-feedback.css"
   ],
   "keywords": [
     "angularjs",

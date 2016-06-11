@@ -41,8 +41,15 @@ Example:
 ```html
 <loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
 ```
+
+**For ignore loading (dont display modal) in case of autocomplete/type a head use the attribute directive:**          
+
+`loading-feedback-ignore` in the input.
+
+
 ##Live-demo
 https://plnkr.co/edit/DYksypT1c7d0T2iKEGka?p=preview
+
 
 ##Demo:
 

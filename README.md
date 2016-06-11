@@ -1,13 +1,13 @@
-# angular-feedback-loading
-
- *Component in construction :)*
+# angular-loading-feedback
 
 # Install
 
 ## Bower
 `bower install angular-loading-feedback`
 
-## Or Import the files in your index.  
+## Or 
+[Download](http://github.com/marcosflorencio/angular-loading-feedback/zipball/master/) files and import the files in your index.  
+
 ```html
 <link rel="stylesheet" href="{folders}/angular-loading-feedback.css" />
 ```

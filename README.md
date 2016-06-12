@@ -42,10 +42,13 @@ Example:
 <loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
 ```
 
-**For ignore loading (dont display modal) in case of autocomplete/type a head use the attribute directive:**          
+**For ignore loading (dont display modal) in case of autocomplete/type a head use the attribute directive:**    `loading-feedback-ignore` in the input.
 
-`loading-feedback-ignore` in the input.
+Example:
 
+```html
+<input type="text" loading-feedback-ignore name="autocomplete" data-ng-model="myModel" fake-auto-complete-directive></input>
+```
 
 ##Live-demo
 https://plnkr.co/edit/DYksypT1c7d0T2iKEGka?p=preview

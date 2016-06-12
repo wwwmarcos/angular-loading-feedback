@@ -28,7 +28,7 @@ In your index declare the directive
 <loading-feedback></loading-feedback>
 ```
 
-# Settings
+#### Style options
 
 * loading-message: _(default: null)_ message appears during the loading.  
  
@@ -41,6 +41,7 @@ Example:
 ```html
 <loading-feedback loading-message="Loading" bg-color="#4183D7" text-color="#E4F1FE"></loading-feedback>
 ```
+#### Ignoring the loading
 
 **For ignore loading (dont display modal) in case of autocomplete/type a head use the attribute directive:**    `loading-feedback-ignore` in the input.
 

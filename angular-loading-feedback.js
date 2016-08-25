@@ -10,7 +10,19 @@
   .directive('loadingFeedback', loadingFeedback)
   .directive('loadingFeedbackIgnore', loadingFeedbackIgnore)
   .factory('loadingFactory', loadingFactory)
-  .config(config);
+  .config(config)
+  .run(run);
+
+  run.$inject = ['$templateCache'];
+  function run($templateCache){
+    $templateCache
+      .put('angular-loading-feedback.modal.template.html', 
+           '<div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
+       +   '<h3 class="angular-loadind-feedback-text">'
+       +   '  <b>{{loadingMessage}}<i class="angular-loadind-feedback-signal"></i></b>'
+       +   '</h3>'
+       +  '</div>');
+  };
 
   config.$inject = ['$provide', '$httpProvider'];
   function config($provide, $httpProvider) {
@@ -49,14 +61,14 @@
       
       function openLoading(urlConfig){
         requestList.push(urlConfig);
-        $rootScope.$broadcast('OpenLoadindEvent');
+        $rootScope.$emit('OpenLoadindEvent');
       };
       
       function closeLoading(urlConfig){
         var index = requestList.indexOf(urlConfig);
         requestList.splice(index, 1);
         if (requestList.length == 0) 
-          $rootScope.$broadcast('CloseLoadingEvent');
+          $rootScope.$emit('CloseLoadingEvent');
       };
     };
     $httpProvider.interceptors.push('LoadindFeedBackInterceptor');
@@ -71,12 +83,7 @@
           , bgColor: '@'
           , textColor: '@'
       },
-      template:
-       '  <div data-ng-if="ativeLoading" class="angular-loadind-feedback-modal" data-ng-init="setColorConfig()">'
-       +   '<h3 class="angular-loadind-feedback-text">'
-       +   '  <b>{{loadingMessage}}<i class="angular-loadind-feedback-signal"></i></b>'
-       +   '</h3>'
-       +  '</div>',
+      templateUrl: 'angular-loading-feedback.modal.template.html',
       link: link
     };
     

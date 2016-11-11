@@ -1,0 +1,24 @@
+{
+  "name": "angular-loading-feedback",
+  "version": "0.0.3",
+  "main": "angular-loading-feedback.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/marcosflorencio/angular-loading-feedback.git"
+  },
+  "keywords": [
+    "angular",
+    "angular-loading",
+    "loading",
+    "feedback"
+  ],
+  "author": "marcosflorencio",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/marcosflorencio/angular-loading-feedback/issues"
+  },
+  "homepage": "https://github.com/marcosflorencio/angular-loading-feedback#readme"
+}

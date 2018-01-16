@@ -51,11 +51,11 @@ Example:
 <input type="text" loading-feedback-ignore name="autocomplete" data-ng-model="myModel" fake-auto-complete-directive></input>
 ```
 
-##Live-demo
+## Live-demo
 https://plnkr.co/edit/DYksypT1c7d0T2iKEGka?p=preview
 
 
-##Demo:
+## Demo:
 
 _(Default settings)_
 
